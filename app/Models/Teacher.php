@@ -11,13 +11,32 @@ class Teacher extends Model
 
     protected $guarded = [];
 
-
-
     public function educationalQualifications()
     {
         return $this->hasMany(TeacherEducationalQualification::class);
     }
 
+    public function city()
+    {
+        return $this->belongsTo(City::class);
+    }
+    public function nationality()
+    {
+        return $this->belongsTo(Nationality::class);
+    }
+
+    public function sex()
+    {
+        return $this->belongsTo(Sex::class);
+    }
+    public function marital_statuses()
+    {
+        return $this->belongsTo(MaritalStatus::class);
+    }
+    public function region()
+    {
+        return $this->belongsTo(Region::class);
+    }
 
     protected static function boot()
     {
@@ -29,5 +48,4 @@ class Teacher extends Model
             $model->saveQuietly();
         });
     }
-
 }

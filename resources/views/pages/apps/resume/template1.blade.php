@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Orbit - Bootstrap 5 Resume/CV Template for Developers</title>
+    <title>Resume</title>
 
     <!-- Meta -->
     <meta charset="utf-8">
@@ -38,14 +38,14 @@
             <div class="profile-container">
 
                 <h1 class="name">{{ $teacher->full_name_en }}</h1>
-                <h3 class="tagline">Full Stack Developer</h3>
+                <h3 class="tagline">{{ $teacher->first_job_name }}</h3>
             </div><!--//profile-container-->
 
             <div class="contact-container container-block">
                 <ul class="list-unstyled contact-list ">
                     <li class="email d-flex align-items-center gap-2 ">
                         <i class="fa-solid fa-envelope"></i><a
-                            href="mailto: {{ $teacher->email }}">{{ $teacher->email }}</a>
+                            href="mailto:{{ $teacher->email }}">{{ $teacher->email }}</a>
                     </li>
                     <li class="phone d-flex align-items-center gap-2"><i class="fa-solid fa-phone"></i><a
                             href="tel:{{ $teacher->phone }}">{{ $teacher->phone }}</a></li>
@@ -59,9 +59,9 @@
             <div class="education-container container-block">
                 <h2 class="container-block-title">Education</h2>
                 <div class="item">
-                    <h4 class="degree">{{ $teacher->institute }}</h4>
-                    <h5 class="meta">{{ $teacher->city }}</h5>
-                    <div class="time">{{ $teacher->graduation_date }}</div>
+                    <h4 class="degree">{{ $edutcation->institute }}</h4>
+                    <h5 class="meta">{{ $edutcation->city }}</h5>
+                    <div class="time">{{ $edutcation->graduation_date }}</div>
                 </div><!--//item-->
 
             </div><!--//education-container-->
@@ -92,7 +92,7 @@
                 <h2 class="section-title"><span class="icon-holder"><i class="fa-solid fa-user"></i></span>Career
                     Profile</h2>
                 <div class="summary">
-                    <p>summary</p>
+                    <p>{{ $teacher->practical_experiences_en }}</p>
                 </div><!--//summary-->
             </section><!--//section-->
 
@@ -103,10 +103,10 @@
                 <div class="item">
                     <div class="meta">
                         <div class="upper-row">
-                            <h3 class="job-title">Lead Developer</h3>
+                            <h3 class="job-title">{{ $teacher->first_job_name }}</h3>
                             <div class="time">2023 - Present</div>
                         </div><!--//upper-row-->
-                        <div class="company">Startup Hubs, San Francisco</div>
+                        <div class="company">{{ $teacher->first_desired_city_name }}</div>
                     </div><!--//meta-->
                     <div class="details">
                         <p>Describe your role here lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
