@@ -40,7 +40,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::name('user-management.')->middleware('role:administrator')->group(function () {
         Route::resource('/user-management/users', UserManagementController::class);
     });
-    Route::get('resume', [ResumeController::class, 'index'])->name('resume');
     Route::resource('schools', SchoolsController::class);
 
     Route::get('/schools/{id}/gallery', [GalleryController::class, 'index'])->name('school.gallery');
@@ -63,6 +62,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('teachers', TeacherController::class);
 
     Route::get('teachers/{id}/resume', [TeacherController::class, 'showResume'])->name('teacher.resume');
+    Route::get('teachers/{teacherId}/match-resumes/{vacancyId}', [TeacherController::class, 'matchResumes'])->name('teacher.matchingResume');
 
 
     Route::resource('vacancies', VacancyController::class);

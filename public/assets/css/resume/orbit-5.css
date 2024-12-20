@@ -63,7 +63,7 @@ p {
     position: absolute;
     right: 0;
     width: 240px;
-    height: 100%;
+    height: calc(100% - 75px);
     min-height: 800px;
     color: #fff;
 }
@@ -175,6 +175,7 @@ p {
     margin-top: 0;
     margin-bottom: 20px;
     font-weight: bolder;
+    display: flex;
 }
 .main-wrapper .section-title .icon-holder {
     width: 30px;
