@@ -33,4 +33,8 @@ class Vacancy extends Model
     {
         return $this->belongsTo(Sex::class);
     }
+    public function teachers()
+    {
+        return $this->belongsToMany(Teacher::class, 'teacher_vacancy');
+    }
 }

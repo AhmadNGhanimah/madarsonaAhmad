@@ -32,8 +32,14 @@
             <img src="https://madaresonajo.com/build/images/logo.png" alt="" width="600" height="75">
         </div>
         <div class="sidebar-wrapper">
-            <img class="profile" src="https://robohash.org/2" alt="" height="230" class="img-fluid"
-                style="width:100%; " />
+            @if ($teacher->sex_id === 2)
+                <img class="profile" src="{{ asset('assets/media/avatars/blank-female.jpg') }}" alt=""
+                    height="230" class="img-fluid" style="width:100%; " />
+            @else
+                <img class="profile" src="{{ asset('assets/media/avatars/blank.png') }}" alt="" height="230"
+                    class="img-fluid" style="width:100%; " />
+            @endif
+
             <div class="profile-container">
 
                 @php

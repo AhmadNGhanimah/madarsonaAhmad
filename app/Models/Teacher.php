@@ -37,6 +37,10 @@ class Teacher extends Model
     {
         return $this->belongsTo(Region::class);
     }
+    public function vacancies()
+    {
+        return $this->belongsToMany(Vacancy::class, 'teacher_vacancy');
+    }
 
     protected static function boot()
     {
