@@ -15,6 +15,7 @@ use App\Models\Sex;
 use App\Models\Specialization;
 use App\Models\Teacher;
 use App\Models\TeacherEducationalQualification;
+use App\Models\Vacancy;
 use Arr;
 use Illuminate\Support\Facades\DB;
 
@@ -224,5 +225,22 @@ class TeacherController extends Controller
 
 
         return view('pages.apps.resume.template1', compact('teacher', 'edutcation'));
+    }
+    public function showVacancies($id)
+    {
+        $vacancies = Vacancy::findOrFail($id);
+
+        $teachers = Teacher::where('experience_years', '>=', $vacancies->experience_years)
+            ->where('sex_id', $vacancies->sex_id)
+            ->where(function ($query) use ($vacancies) {
+                $query->where('first_job_title_id', $vacancies->job_title_id)
+                    ->orWhere('second_job_title_id', $vacancies->job_title_id)
+                    ->orWhere('third_job_title_id', $vacancies->job_title_id);
+            })
+            ->get();
+
+        dd($teachers, $vacancies);
+
+        return view('teachers.vacancies', compact('teacher', 'vacancies'));
     }
 }

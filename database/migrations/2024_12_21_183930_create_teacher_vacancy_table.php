@@ -13,9 +13,13 @@ return new class extends Migration
     {
         Schema::create('teacher_vacancy', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('teacher_id')->constrained()->onDelete('cascade');
-            $table->foreignId('vacancy_id')->constrained()->onDelete('cascade');
+            $table->unsignedBigInteger('teacher_id');
+            $table->unsignedBigInteger('vacancy_id');
             $table->timestamps();
+
+
+            $table->foreign('teacher_id')->references('id')->on('teachers')->onDelete('cascade');
+            $table->foreign('vacancy_id')->references('id')->on('vacancies')->onDelete('cascade');
         });
     }
 

@@ -65,6 +65,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     // Teachers Routes
     Route::resource('teachers', TeacherController::class);
     Route::get('teachers/{id}/resume', [TeacherController::class, 'showResume'])->name('teacher.resume');
+    Route::get('vacancie/{id}/teachers', [TeacherController::class, 'showVacancies'])->name('teacher.vacancies');
+
 
     // Vacancies Routes
     Route::resource('vacancies', VacancyController::class);
