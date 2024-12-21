@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('teacher_id');
             $table->unsignedBigInteger('vacancy_id');
+            $table->boolean('is_send')->default(false);
             $table->timestamps();
 
 
