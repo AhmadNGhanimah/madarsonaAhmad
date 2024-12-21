@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -40,6 +41,11 @@ class Teacher extends Model
     public function vacancies()
     {
         return $this->belongsToMany(Vacancy::class, 'teacher_vacancy');
+    }
+
+    public function scopeIsActive(Builder $query): Builder
+    {
+        return $query->where('is_active', '=', 1);
     }
 
     protected static function boot()
